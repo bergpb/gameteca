@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% block content %}
+  <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+      <thead class="thead-default">
+          <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Console</th>
+          </tr>
+      </thead>
+      <tbody>
+      {% for game in games %}
+          <tr>
+            <td>{{ game.name }}</td>
+            <td>{{ game.category }}</td>
+            <td>{{ game.console }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+{% endblock %}
