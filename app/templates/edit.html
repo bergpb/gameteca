@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <form action="{{ url_for('update') }}" method="post">
+    <figure>
+      <img src="{{ url_for('image', filename = cover_game) }}">
+      <figcaption>
+        <label><input type="file" name="image" accept=".jpg"></label>
+      </figcaption>
+    </figure>
+    <input type="hidden" name="game_id" value="{{ game.id }}">
+    <div class="form-group">
+      <label class="label">Name</label>
+      <input name="name" class="form-control" type="text" placeholder="{{ game.name }}" value="{{ game.name }}">
+    </div>
+    <div class="form-group">
+      <label class="label">Category</label>
+      <input name="category" class="form-control" type="text" placeholder="{{ game.category }}" value="{{ game.category }}">
+    </div>
+    <div class="form-group">
+      <label class="label">Console</label>
+      <input name="category" class="form-control" type="text" placeholder="{{ game.console }}" value="{{ game.console }}">
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="btn btn-info">Submit</button>
+        <a class="btn btn-warning" href="{{ url_for('index') }}">Back</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}

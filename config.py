@@ -1,7 +1,13 @@
 import os
-basedir = os.path.abspath(os.path.dirname(__file__))
+import configparser
 
-class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+config = configparser.ConfigParser()
+config.read('config.cfg')
+
+DEBUG = True
+
+# SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'database.db')
+SQLALCHEMY_DATABASE_URI = config['DEV']['elephan_auth']
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+SECRET_KEY = config['DEV']['secret_key']

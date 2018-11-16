@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <form action="{{ url_for('create') }}" method="post" enctype="multipart/form-data">
+    <div class="row">
+      <figure class="figure">
+        <img class="figure-img img-fluid rounded" src="{{ url_for('image', filename = 'capa_default.jpg') }}">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input">
+          <label class="custom-file-label">Choose file...</label>
+        </div>
+      </figure>
+    </div>
+    <div class="form-group">
+      <label class="label">Name</label>
+      <input name="name" class="form-control" type="text" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label class="label">Category</label>
+      <input name="category" class="form-control" type="text" placeholder="Category">
+    </div>
+    <div class="form-group">
+      <label class="label">Console</label>
+      <input name="console" class="form-control" type="text" placeholder="Console">
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="btn btn-info">Submit</button>
+        <a class="btn btn-warning" href="{{ url_for('index') }}">Back</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}

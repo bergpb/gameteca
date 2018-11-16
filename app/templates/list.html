@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if games %}
+    <table class="table table-hover">
+    <thead>
+      <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Console</th>
+          <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for game in games %}
+      <tr>
+        <td>{{ game.name }}</td>
+        <td>{{ game.category }}</td>
+        <td>{{ game.console }}</td>
+        <td>
+          <a class="btn btn-primary" href="{{ url_for('show', game_id = game.id) }}"><i class="fa fa-info-circle"></i></a>
+          <a class="btn btn-success" href="{{ url_for('edit', game_id = game.id) }}"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-danger" href="{{ url_for('delete', game_id = game.id) }}"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Your list is empty</p>
+  {% endif %}
+  <div>
+    <a class="btn btn-success" href="{{ url_for('new') }}"><i class="fa fa-plus"></i></a>
+  </div>
+{% endblock %}

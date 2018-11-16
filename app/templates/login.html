@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 offset-md-3 offset-lg-3 offset-xl-3 mt-4">
+    <h3 class="text-center mb-4">Login</h3>
+      <form method="post" action="{{ url_for('auth') }}">
+          <input type="hidden" name="next" value="{{ next or url_for('index') }}">
+          <div class="form-group">
+            <input name="username" class="form-control" type="text" placeholder="Username" autofocus="">
+          </div>
+          <div class="form-group">
+            <input name="password" class="form-control " type="password" placeholder="Password">
+          </div>
+          <div class="form-check mb-4">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label">Remember Me</label>
+          </div>
+          <button class="btn btn-success btn-block">Login</button>
+      </form>
+      <div class="mt-3">
+        <div class="row">
+          <div class="col-6">
+            <a href="{{ url_for('signup') }}">Sign Up</a>
+          </div>
+          <div class="col-6">
+            <a href="../">Forgot Password</a>
+          </div>
+        </div>
+      </div>
+  </div>
+{% endblock %}

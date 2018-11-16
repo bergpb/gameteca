@@ -6,6 +6,11 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
+flask-migrate = "*"
+flask-script = "*"
+"psycopg2" = "*"
+configparser = "*"
+"psycopg2-binary" = "*"
 
 [requires]
 python_version = "3.5"

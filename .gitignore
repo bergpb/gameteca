@@ -117,4 +117,5 @@ dmypy.json
 prepara_banco.py
 anotacoes_curso.md
 dao.py
-/uploads
+uploads/*
+config.cfg

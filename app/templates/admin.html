@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if users %}
+    <table class="table table-hover">
+    <thead>
+      <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Password</th>
+          <th scope="col">Admin?</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.admin }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Your list is empty</p>
+  {% endif %}
+  <div>
+    <a class="btn btn-success" href="{{ url_for('signup') }}"><i class="fa fa-plus"></i></a>
+  </div>
+{% endblock %}

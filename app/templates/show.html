@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <table class="table table-hover table-sm">
+      <thead>
+          <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Console</th>
+              <th scope="col">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ game.id }}</td>
+          <td>{{ game.name }}</td>
+          <td>{{ game.category }}</td>
+          <td>{{ game.console }}</td>
+          <td>
+            <a class="btn btn-primary" href="{{ url_for('edit', game_id = game.id) }}">Edit</a>
+            <a class="btn btn-danger" href="{{ url_for('delete', game_id = game.id) }}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  <a class="btn btn-warning" href="{{ url_for('index') }}">Back</a>
+{% endblock %}
